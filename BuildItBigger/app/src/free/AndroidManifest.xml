@@ -2,6 +2,12 @@
     package="com.udacity.gradle.builditbigger">
 
     <application>
-        <activity android:name="com.udacity.gradle.builditbigger.MainActivity"></activity>
+        <!--This meta-data tag is required to use Google Play Services.-->
+
+        <activity android:name="com.udacity.gradle.builditbigger.MainActivity">
+        </activity>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 </manifest>
