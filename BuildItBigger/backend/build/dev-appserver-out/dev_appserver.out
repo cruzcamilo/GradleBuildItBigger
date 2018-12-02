@@ -1,27 +1,29 @@
 Warning: Google App Engine Java 7 runtime is deprecated.
 Warning: See https://cloud.google.com/appengine/docs/deprecations/java7
-nov 29, 2018 8:01:55 PM java.util.prefs.WindowsPreferences <init>
+dic 01, 2018 4:10:51 PM java.util.prefs.WindowsPreferences <init>
 ADVERTENCIA: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0x80000002. Windows RegCreateKeyEx(...) returned error code 5.
-nov 29, 2018 8:01:55 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+dic 01, 2018 4:10:52 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
 INFORMACI?N: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\User\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'D:\Camilo\Android_Developer_Nanodegre_Projects\GradleBuildItBigger_old\BuildItBigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
-nov 29, 2018 8:01:55 PM com.google.apphosting.utils.jetty.JettyLogger info
+dic 01, 2018 4:10:52 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFORMACI?N: Logging to JettyLogger(null) via com.google.apphosting.utils.jetty.JettyLogger
-nov 30, 2018 1:01:55 AM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+dic 01, 2018 9:10:52 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
 ADVERTENCIA: Your working directory, (D:\Camilo\Android_Developer_Nanodegre_Projects\GradleBuildItBigger_old\BuildItBigger\backend) is not equal to your 
 web application root (D:\Camilo\Android_Developer_Nanodegre_Projects\GradleBuildItBigger_old\BuildItBigger\backend\build\exploded-backend)
 You will not be able to access files from your working directory on the production server.
 
-nov 30, 2018 1:01:56 AM com.google.apphosting.utils.jetty.JettyLogger info
+dic 01, 2018 9:10:53 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFORMACI?N: jetty-6.1.x
-nov 30, 2018 1:01:58 AM com.google.apphosting.utils.jetty.JettyLogger info
-INFORMACI?N: Started SelectChannelConnector@localhost:8080
-nov 30, 2018 1:01:58 AM com.google.appengine.tools.development.AbstractModule startup
+dic 01, 2018 9:10:55 PM com.google.apphosting.utils.jetty.JettyLogger info
+INFORMACI?N: Started SelectChannelConnector@0.0.0.0:8080
+dic 01, 2018 9:10:55 PM com.google.appengine.tools.development.AbstractModule startup
 INFORMACI?N: Module instance default is running at http://localhost:8080/
-nov 30, 2018 1:01:58 AM com.google.appengine.tools.development.AbstractModule startup
+dic 01, 2018 9:10:55 PM com.google.appengine.tools.development.AbstractModule startup
 INFORMACI?N: The admin console is running at http://localhost:8080/_ah/admin
-nov 29, 2018 8:01:58 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+dic 01, 2018 4:10:55 PM com.google.appengine.tools.development.DevAppServerImpl doStart
 INFORMACI?N: Dev App Server is now running
-nov 29, 2018 8:02:00 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeByteBufferOperations
+dic 01, 2018 4:11:14 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeByteBufferOperations
 ADVERTENCIA: platform method missing - proto runtime falling back to safer methods: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.misc")
-nov 29, 2018 8:02:00 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeArrayOperations
+dic 01, 2018 4:11:14 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeArrayOperations
 ADVERTENCIA: platform method missing - proto runtime falling back to safer methods: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.misc")
+dic 01, 2018 4:11:17 PM com.google.appengine.tools.development.LocalResourceFileServlet doGet
+ADVERTENCIA: No file found for: /favicon.ico

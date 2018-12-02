@@ -2,7 +2,6 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -14,9 +13,24 @@ import java.io.IOException;
 
 public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private static MyApi myApiService = null;
-    private Context context;
+
+    private OnFetchFinishedListener listener;
 
 
+    //Interface to return value to main activity.
+    // Taken from https://stackoverflow.com/questions/39303368/
+    public interface OnFetchFinishedListener {
+        void onFetchFinished(String result);
+    }
+
+    // getting a listener instance from the constructor
+    // Taken from https://stackoverflow.com/questions/39303368/
+    public EndpointsAsyncTask(OnFetchFinishedListener listener) {
+        this.listener = listener;
+    }
+
+    // This AsyncTask executes an ApiMethod from MyEndpoint class, returning a joke from the JAVA
+    // library.
     @Override
     protected String doInBackground(Context... contexts) {
         if (myApiService == null) {  // Only do this once
@@ -26,7 +40,6 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
                     // - 10.0.2.2 is localhost's IP address in Android emulator
                     // - turn off compression when running against local devappserver
                     .setRootUrl("http://192.168.0.7:8080/_ah/api/")
-                    //.setRootUrl("http://10.0.2.2:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
@@ -34,12 +47,8 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
                         }
                     });
             // end options for devappserver
-
             myApiService = builder.build();
         }
-
-        context = contexts[0];
-        //String joke = new Jokes().getJoke();
 
         try {
             return myApiService.sayHi().execute().getData();
@@ -50,6 +59,6 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        listener.onFetchFinished(result);
     }
 }

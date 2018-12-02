@@ -2,24 +2,45 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
+import android.support.test.espresso.IdlingResource;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.android.jokelibrary.LibraryMainActivity;
-import com.example.android.sillyjokes.Jokes;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Jokes jokeGenerator = new Jokes();
-    String joke;
+    private String joke = "";
+    @Nullable
+    private SimpleIdlingResource mIdlingResource;
+
+    @VisibleForTesting
+    @NonNull
+    public IdlingResource getIdlingResource() {
+        if (mIdlingResource == null) {
+            mIdlingResource = new SimpleIdlingResource();
+        }
+        return mIdlingResource;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new EndpointsAsyncTask().execute(getBaseContext());
+        new EndpointsAsyncTask(new EndpointsAsyncTask.OnFetchFinishedListener() {
+            @Override
+            public void onFetchFinished(String result) {
+                joke = result;
+            }
+        }).execute(getBaseContext());
     }
 
     @Override
@@ -45,9 +66,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        joke = jokeGenerator.getJoke();
-        Intent intent = new Intent(this, LibraryMainActivity.class);
-        intent.putExtra("joke", joke);
-        startActivity(intent);
+        if(!joke.equals("")) {
+            Intent intent = new Intent(this, LibraryMainActivity.class);
+            intent.putExtra("joke", joke);
+            Log.v("Main Activity", "working");
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, R.string.please_wait, Toast.LENGTH_SHORT).show();
+        }
     }
 }
