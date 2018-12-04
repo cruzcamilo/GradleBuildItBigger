@@ -25,7 +25,7 @@ public class LibraryMainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        joke = jokeGenerator.getJoke();
+        joke = jokeGenerator.getRandomJoke();
         jokeTv.setText(joke);
     }
 }

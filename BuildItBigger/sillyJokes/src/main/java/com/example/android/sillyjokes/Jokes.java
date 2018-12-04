@@ -25,6 +25,10 @@ public class Jokes {
     }
 
     public String getJoke() {
+        return jokes[0];
+    }
+
+    public String getRandomJoke() {
         int numJoke = random.nextInt(6);
         return jokes[numJoke];
     }
