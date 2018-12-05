@@ -16,7 +16,6 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 
     private OnFetchFinishedListener listener;
 
-
     //Interface to return value to main activity.
     // Taken from https://stackoverflow.com/questions/39303368/
     public interface OnFetchFinishedListener {

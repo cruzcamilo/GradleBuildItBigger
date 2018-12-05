@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.android.jokelibrary.LibraryMainActivity;
 
-
 public class MainActivity extends AppCompatActivity {
 
     public String joke = "";
@@ -64,6 +63,4 @@ public class MainActivity extends AppCompatActivity {
         Log.v("Main Activity", "working");
         startActivity(intent);
     }
-
-
 }
