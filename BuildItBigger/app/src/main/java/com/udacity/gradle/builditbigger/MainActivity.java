@@ -14,7 +14,7 @@ import com.example.android.jokelibrary.LibraryMainActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String joke = "";
+    public String joke = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +50,20 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
+    public void checkJoke(View view) {
         if(!joke.equals("")) {
-            Intent intent = new Intent(this, LibraryMainActivity.class);
-            intent.putExtra("joke", joke);
-            Log.v("Main Activity", "working");
-            startActivity(intent);
+            tellJoke();
         } else {
             Toast.makeText(this, R.string.please_wait, Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void tellJoke(){
+        Intent intent = new Intent(this, LibraryMainActivity.class);
+        intent.putExtra("joke", joke);
+        Log.v("Main Activity", "working");
+        startActivity(intent);
+    }
+
+
 }
