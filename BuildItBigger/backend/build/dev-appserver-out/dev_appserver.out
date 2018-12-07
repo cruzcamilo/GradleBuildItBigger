@@ -1,32 +1,27 @@
 Warning: Google App Engine Java 7 runtime is deprecated.
 Warning: See https://cloud.google.com/appengine/docs/deprecations/java7
-dic 06, 2018 7:50:50 PM java.util.prefs.WindowsPreferences <init>
+dic 07, 2018 4:19:22 PM java.util.prefs.WindowsPreferences <init>
 ADVERTENCIA: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0x80000002. Windows RegCreateKeyEx(...) returned error code 5.
-dic 06, 2018 7:50:52 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+dic 07, 2018 4:19:23 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
 INFORMACI?N: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\User\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'D:\Camilo\Android_Developer_Nanodegre_Projects\GradleBuildItBigger_old\BuildItBigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
-dic 06, 2018 7:50:52 PM com.google.apphosting.utils.jetty.JettyLogger info
+dic 07, 2018 4:19:23 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFORMACI?N: Logging to JettyLogger(null) via com.google.apphosting.utils.jetty.JettyLogger
-dic 07, 2018 12:50:52 AM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+dic 07, 2018 9:19:23 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
 ADVERTENCIA: Your working directory, (D:\Camilo\Android_Developer_Nanodegre_Projects\GradleBuildItBigger_old\BuildItBigger\backend) is not equal to your 
 web application root (D:\Camilo\Android_Developer_Nanodegre_Projects\GradleBuildItBigger_old\BuildItBigger\backend\build\exploded-backend)
 You will not be able to access files from your working directory on the production server.
 
-dic 07, 2018 12:50:53 AM com.google.apphosting.utils.jetty.JettyLogger info
+dic 07, 2018 9:19:23 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFORMACI?N: jetty-6.1.x
-dic 07, 2018 12:50:58 AM com.google.apphosting.utils.jetty.JettyLogger info
+dic 07, 2018 9:19:25 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFORMACI?N: Started SelectChannelConnector@0.0.0.0:8080
-dic 07, 2018 12:50:58 AM com.google.appengine.tools.development.AbstractModule startup
+dic 07, 2018 9:19:25 PM com.google.appengine.tools.development.AbstractModule startup
 INFORMACI?N: Module instance default is running at http://localhost:8080/
-dic 07, 2018 12:50:58 AM com.google.appengine.tools.development.AbstractModule startup
+dic 07, 2018 9:19:25 PM com.google.appengine.tools.development.AbstractModule startup
 INFORMACI?N: The admin console is running at http://localhost:8080/_ah/admin
-dic 06, 2018 7:50:58 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+dic 07, 2018 4:19:25 PM com.google.appengine.tools.development.DevAppServerImpl doStart
 INFORMACI?N: Dev App Server is now running
-dic 06, 2018 7:55:22 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeByteBufferOperations
+dic 07, 2018 4:23:44 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeByteBufferOperations
 ADVERTENCIA: platform method missing - proto runtime falling back to safer methods: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.misc")
-dic 06, 2018 7:55:22 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeArrayOperations
+dic 07, 2018 4:23:44 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeArrayOperations
 ADVERTENCIA: platform method missing - proto runtime falling back to safer methods: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.misc")
-dic 06, 2018 7:55:31 PM com.google.appengine.tools.development.LocalResourceFileServlet doGet
-ADVERTENCIA: No file found for: /favicon.ico
-dic 06, 2018 9:54:44 PM com.google.appengine.tools.development.AbstractModule shutdown
-INFORMACI?N: Shutting down module instance default
-Shutting down.

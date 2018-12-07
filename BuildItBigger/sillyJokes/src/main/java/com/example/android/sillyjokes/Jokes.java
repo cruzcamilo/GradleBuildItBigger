@@ -2,7 +2,7 @@ package com.example.android.sillyjokes;
 
 import java.util.Random;
 
-public class Jokes {
+public final class Jokes {
 
     private Random random = new Random();
     private String [] jokes = new String[7];
