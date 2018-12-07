@@ -2,6 +2,7 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -15,6 +16,7 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
     private static MyApi myApiService = null;
 
     private OnFetchFinishedListener listener;
+    private static final String TAG = EndpointsAsyncTask.class.getName();
 
     //Interface to return value to main activity.
     // Taken from https://stackoverflow.com/questions/39303368/
@@ -52,7 +54,8 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
         try {
             return myApiService.sayHi().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            Log.e(TAG, e.getMessage());
+            return "";
         }
     }
 

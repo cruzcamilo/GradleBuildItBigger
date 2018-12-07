@@ -20,12 +20,16 @@ import com.udacity.gradle.builditbigger.databinding.FragmentMainBinding;
  */
 public class MainActivityFragment extends Fragment {
 
+    private String joke = "";
+
     public MainActivityFragment() {
     }
+
     private static final String TAG = MainActivityFragment.class.getName();
 
     private InterstitialAd mInterstitialAd;
     private FragmentMainBinding mFragmentMainBinding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,21 +54,32 @@ public class MainActivityFragment extends Fragment {
         requestNewInterstitial();
 
         mFragmentMainBinding.getJokeBtn.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              if(mInterstitialAd.isLoaded()){
-                  mInterstitialAd.show();
-              } else {
-                  Log.d(TAG, getString(R.string.interstitial_not_loaded));
-              }
-          }
-      });
+
+            @Override
+            public void onClick(View view) {
+
+                new EndpointsAsyncTask(new EndpointsAsyncTask.OnFetchFinishedListener() {
+                    @Override
+                    public void onFetchFinished(String result) {
+                        joke = result;
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+                            Log.d(TAG, getString(R.string.interstitial_not_loaded));
+                            requestNewInterstitial();
+                        }
+                    }
+                }).execute(((MainActivity) getActivity()).getBaseContext());
+            }
+
+        });
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                ((MainActivity)getActivity()).tellJoke();
-                requestNewInterstitial();
+                ((MainActivity) getActivity()).tellJoke(joke);
+                // load a new interstitial after displaying the previous one
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
 

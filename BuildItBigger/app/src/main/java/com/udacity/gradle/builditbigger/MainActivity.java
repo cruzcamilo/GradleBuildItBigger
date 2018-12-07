@@ -3,28 +3,22 @@ package com.udacity.gradle.builditbigger;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.android.jokelibrary.LibraryMainActivity;
 
+import static com.example.android.jokelibrary.LibraryMainActivity.JOKE_KEY;
+
 public class MainActivity extends AppCompatActivity {
 
-    public String joke = "";
+    private String joke = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new EndpointsAsyncTask(new EndpointsAsyncTask.OnFetchFinishedListener() {
-            @Override
-            public void onFetchFinished(String result) {
-                joke = result;
-            }
-        }).execute(getBaseContext());
     }
 
     @Override
@@ -50,17 +44,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkJoke(View view) {
-        if(!joke.equals("")) {
-            tellJoke();
-        } else {
-            Toast.makeText(this, R.string.please_wait, Toast.LENGTH_SHORT).show();
-        }
+        new EndpointsAsyncTask(new EndpointsAsyncTask.OnFetchFinishedListener() {
+            @Override
+            public void onFetchFinished(String result) {
+                joke = result;
+                    tellJoke(joke);
+            }
+        }).execute(getBaseContext());
     }
 
-    public void tellJoke(){
+    public void tellJoke(String joke){
         Intent intent = new Intent(this, LibraryMainActivity.class);
-        intent.putExtra("joke", joke);
-        Log.v("Main Activity", "working");
+        intent.putExtra(JOKE_KEY, joke);
         startActivity(intent);
     }
 }

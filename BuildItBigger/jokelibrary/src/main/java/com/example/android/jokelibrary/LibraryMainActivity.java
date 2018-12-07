@@ -10,6 +10,7 @@ import com.example.android.sillyjokes.Jokes;
 public class LibraryMainActivity extends AppCompatActivity {
 
 
+    public static final String JOKE_KEY = "joke";
     Jokes jokeGenerator = new Jokes();
     String joke;
     TextView jokeTv;
@@ -19,7 +20,9 @@ public class LibraryMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_library);
 
-        String joke = getIntent().getStringExtra("joke");
+        if(getIntent().hasExtra(JOKE_KEY) && getIntent()!=null){
+            joke = getIntent().getStringExtra(JOKE_KEY);
+        }
         jokeTv = (TextView) findViewById(R.id.joke_tv);
         jokeTv.setText(joke);
     }

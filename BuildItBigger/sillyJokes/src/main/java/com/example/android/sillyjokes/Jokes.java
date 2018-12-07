@@ -32,4 +32,8 @@ public class Jokes {
         int numJoke = random.nextInt(6);
         return jokes[numJoke];
     }
+
+    public String [] getAllJokes(){
+        return jokes;
+    }
 }
